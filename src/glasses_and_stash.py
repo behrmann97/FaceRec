@@ -27,8 +27,7 @@ while(True):
     ret, frame = cap.read()
     gray            = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces           = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
-
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
+    frame = np.zeros((len(frame), len(frame[0]),4), np.uint8)
 
 
     for (x, y, w, h) in faces if faces != () else faces_prev:
